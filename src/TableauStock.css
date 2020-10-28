@@ -1,0 +1,26 @@
+table {
+  border-collapse: collapse;
+  margin: 50px auto;
+  width: 90%;
+  min-width: 500px;
+  border: 1px solid #333;
+  border-left: 5px solid cadetblue;
+  border-right: 5px solid cadetblue;
+}
+td,
+th {
+  padding: 10px 5px;
+  border: 1px solid #333;
+}
+tr :nth-child(2),
+tr :nth-child(3) {
+  width: 100px;
+  text-align: center;
+}
+tr:nth-child(even) {
+  background-color: skyblue;
+}
+
+.scroll {
+  overflow: auto;
+}

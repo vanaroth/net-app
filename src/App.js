@@ -1,4 +1,5 @@
 import './App.css';
+import { TableauStock } from './TableauStock';
 
 function App() {
   return (
@@ -7,9 +8,7 @@ function App() {
         <h1>NET-APP</h1>
       </header>
       <div className="App-content">
-        <h1>Content</h1>
-        <p>ef ezq qzef qzef qzef qzef</p>
-        <p>ef ezq qzef qzef qzef qzef</p>
+        <TableauStock />
       </div>
     </div>
   );
