@@ -12,7 +12,7 @@ export const TableauStock = () => {
     { nom: 'Seau', quantite: 10, unite: 'U' },
   ];
   useEffect(() => {
-    Axios.get('api.nextsetp.ovh/sale')
+    Axios.get('http://api.nextsetp.ovh/sale')
       .then((r) => console.log('Success', r))
       .catch((err) => console.log('Error', err));
   }, []);
