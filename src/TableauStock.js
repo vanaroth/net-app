@@ -1,4 +1,6 @@
 import './TableauStock.css';
+import { useEffect } from 'react';
+import Axios from 'axios';
 
 export const TableauStock = () => {
   const headers = ['nom', 'quantite', 'unité'];
@@ -9,6 +11,11 @@ export const TableauStock = () => {
     { nom: 'manche à balai', quantite: 5, unite: 'U' },
     { nom: 'Seau', quantite: 10, unite: 'U' },
   ];
+  useEffect(() => {
+    Axios.get('api.nextsetp.ovh/sale')
+      .then((r) => console.log('Success', r))
+      .catch((err) => console.log('Error', err));
+  }, []);
   return (
     <div className="TableauStock">
       <h1>Stock</h1>
