@@ -1,19 +1,32 @@
 import './TableauStock.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Axios from 'axios';
 
 export const TableauStock = () => {
-  const headers = ['nom', 'quantite', 'unité'];
-  const lignes = [
+  const headers = ['#', 'nom', 'quantite', 'unité', 'propriétaire'];
+  const [lignes, setLignes] = useState([
     { nom: 'Scotch Orange', quantite: 2000, unite: 'RL' },
     { nom: 'Sac Poubelle', quantite: 10, unite: 'RL' },
     { nom: 'Télémètre', quantite: 2, unite: 'U' },
     { nom: 'manche à balai', quantite: 5, unite: 'U' },
     { nom: 'Seau', quantite: 10, unite: 'U' },
-  ];
+  ]);
   useEffect(() => {
-    Axios.get('http://api.nextsetp.ovh/sale')
-      .then((r) => console.log('Success', r))
+    Axios.get('https://api.nextsetp.ovh/stock?lakle=jxF35644TTcY847gttthr')
+      .then((r) => {
+        console.log('Success', r);
+        const liste_stock = r.dataResponse.liste_stock.map(
+          ({ idProduit, nom, total, unite_total, proprietaire }) => ({
+            idProduit,
+            nom,
+            quantite: total,
+            unite: unite_total,
+            proprietaire,
+          })
+        );
+        console.log('liste_stock', liste_stock);
+        setLignes(liste_stock);
+      })
       .catch((err) => console.log('Error', err));
   }, []);
   return (
