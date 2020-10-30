@@ -15,7 +15,7 @@ export const TableauStock = () => {
     Axios.get('https://api.nextsetp.ovh/stock?lakle=jxF35644TTcY847gttthr')
       .then((r) => {
         console.log('Success', r);
-        const liste_stock = r.dataResponse.liste_stock.map(
+        const liste_stock = r.data.dataResponse.liste_stock.map(
           ({ idProduit, nom, total, unite_total, proprietaire }) => ({
             idProduit,
             nom,
